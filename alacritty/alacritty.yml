@@ -1,0 +1,112 @@
+font:
+  normal:
+    family: FiraCode NF
+    style: Regular
+
+  bold:
+    family: FiraCode NF
+    style: SemiBold
+
+  italic:
+    family: VictorMono Nerd Font
+    style: Medium Italic
+
+  bold_italic:
+    family: VictorMono Nerd Font
+    style: Bold Italic
+
+  size: 17
+
+  offset:
+    y: 4
+
+  # glyph_offset:
+#     x: 0
+#     y: 0
+
+window:
+  # title: 'Alacritty'
+  decorations: transparent
+  dimensions:
+    columns: 173
+    lines: 48
+  padding:
+    x: 6
+#     y: 6
+
+cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Underline
+  # text:   '0xf1c1c1'
+  # cursor: '0xff2600'
+
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  # unfocused_hollow: true
+
+# Live config reload (changes require restart)
+#live_config_reload: true
+
+# # TokyoNight Alacritty Theme
+colors:
+  # #   # Default colors
+  primary:
+    background: '0x1F2335'
+#     foreground: '0xc0caf5'
+#
+#   # Normal colors
+#   normal:
+#     black: '0x15161e'
+#     red: '0xf7768e'
+#     green: '0x9ece6a'
+#     yellow: '0xe0af68'
+#     blue: '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan: '0x7dcfff'
+#     white: '0xa9b1d6'
+#
+#   # Bright colors
+#   bright:
+#     black: '0x414868'
+#     red: '0xf7768e'
+#     green: '0x9ece6a'
+#     yellow: '0xe0af68'
+#     blue: '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan: '0x7dcfff'
+#     white: '0xc0caf5'
+#
+#   indexed_colors:
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
+
+debug:
+  # Should display the render timer
+  render_timer: false
+
+bell:
+  animation: EaseOutExpo
+  duration: 100
+  color: '#1B1F27'
+
+mouse:
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: true
+
+key_bindings:
+  - { key: Q, mods: Command, action: None }
+  - { key: W, mods: Command, action: None }
+
+env:
+  TERM: xterm-256color
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - tmux
