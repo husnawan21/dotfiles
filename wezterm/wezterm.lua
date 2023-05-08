@@ -38,7 +38,7 @@ return {
 			font = wezterm.font({
 				family = "Victor Mono",
 				style = "Italic",
-				weight = "Medium",
+				weight = "Regular",
 			}),
 		},
 	},
@@ -62,11 +62,11 @@ return {
 		-- Whatever font is selected here, it will have the
 		-- main font setting appended to it to pick up any
 		-- fallback fonts you may have used there.
-		font = wezterm.font({ family = "Fira Code", weight = "Medium" }),
+		font = wezterm.font({ family = "Fira Code", weight = "Regular" }),
 
 		-- The size of the font in the tab bar.
 		-- Default to 10. on Windows but 12.0 on other systems
-		font_size = 17.0,
+		font_size = 16.0,
 
 		-- The overall background color of the tab bar when
 		-- the window is focused
