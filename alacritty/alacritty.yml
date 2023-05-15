@@ -8,105 +8,138 @@ font:
     style: SemiBold
 
   italic:
-    family: VictorMono Nerd Font
-    style: Medium Italic
+    family: JetBrainsMono Nerd Font
+    style: Regular Italic
 
   bold_italic:
-    family: VictorMono Nerd Font
-    style: Bold Italic
+    family: JetBrainsMono Nerd Font
+    style: SemiBold Italic
 
-  size: 17
+  size: 15
 
   offset:
-    y: 4
+    y: 6
 
-  # glyph_offset:
-#     x: 0
-#     y: 0
+  glyph_offset:
+    #     x: 0
+    y: 2
 
 window:
   # title: 'Alacritty'
   decorations: transparent
   dimensions:
     columns: 173
-    lines: 48
+    lines: 34
   padding:
-    x: 6
-#     y: 6
+    x: 10
+    y: 0
+  dynamic_padding: false
+  # opacity: 0.9
 
-cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  style: Underline
-  # text:   '0xf1c1c1'
-  # cursor: '0xff2600'
+option_as_alt: OnlyLeft
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  # unfocused_hollow: true
-
-# Live config reload (changes require restart)
-#live_config_reload: true
-
-# # TokyoNight Alacritty Theme
+# TokyoNight Alacritty Theme
 colors:
-  # #   # Default colors
+  # tokyo-night: &tokyo-night
+  # Default colors
   primary:
-    background: '0x1F2335'
-#     foreground: '0xc0caf5'
-#
-#   # Normal colors
-#   normal:
-#     black: '0x15161e'
-#     red: '0xf7768e'
-#     green: '0x9ece6a'
-#     yellow: '0xe0af68'
-#     blue: '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan: '0x7dcfff'
-#     white: '0xa9b1d6'
-#
-#   # Bright colors
-#   bright:
-#     black: '0x414868'
-#     red: '0xf7768e'
-#     green: '0x9ece6a'
-#     yellow: '0xe0af68'
-#     blue: '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan: '0x7dcfff'
-#     white: '0xc0caf5'
-#
-#   indexed_colors:
-#     - { index: 16, color: '0xff9e64' }
-#     - { index: 17, color: '0xdb4b4b' }
+    background: "#1F2335"
+    foreground: "#a9b1d6"
 
-debug:
-  # Should display the render timer
-  render_timer: false
+  # Normal colors
+  normal:
+    black: "#32344a"
+    red: "#f7768e"
+    green: "#9ece6a"
+    yellow: "#e0af68"
+    blue: "#7aa2f7"
+    magenta: "#ad8ee6"
+    cyan: "#449dab"
+    white: "#787c99"
+
+  # Bright colors
+  bright:
+    black: "#444b6a"
+    red: "#ff7a93"
+    green: "#b9f27c"
+    yellow: "#ff9e64"
+    blue: "#7da6ff"
+    magenta: "#bb9af7"
+    cyan: "#0db9d7"
+    white: "#acb0d0"
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
 
 bell:
   animation: EaseOutExpo
-  duration: 100
-  color: '#1B1F27'
+  duration: 70
+  color: "#1B1F27"
+
+selection:
+  # This string contains all characters that are used as separators for
+  # "semantic words" in Alacritty.
+  semantic_escape_chars:
+    ",│`|:\"' ()[]{}<>\t"
+    # When set to `true`,
 
 mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
+  hints:
+    launcher:
+      # This depends on your OS, on Mac it’s `open`
+      program: open
+    modifiers: Command
 
 key_bindings:
-  - { key: Q, mods: Command, action: None }
-  - { key: W, mods: Command, action: None }
+  # - { key: Q, mods: Command, action: None }
+  # - { key: W, mods: Command, action: None }
+  # tmux -- from https://www.joshmedeski.com/posts/macos-keyboard-shortcuts-for-tmux/
+  - { key: E, mods: Command, chars: "\x02\"" } # split tmux window vertically
+  - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
+  # - { key: F, mods: Command, chars: "lfcd\n" } # open file manager 'gokcehan/lf'
+  - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" } # start tmux search mode
+  - { key: G, mods: Command, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
+  - { key: J, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
+  - { key: K, mods: Command, chars: "\x02s" } # open interactive tmux session client
+  - { key: L, mods: Command, chars: "\x02L" } # switch to the last tmux session
+  # - { key: O, mods: Command, chars: "\x02u" } # open URLs 'joshmedeski/tmux-fzf-url'
+  - { key: P, mods: Command, chars: ":GoToFile\n" } # files
+  # - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
+  # - { key: Q, mods: Command, chars: ":q\n" } # quit vim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
+  - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
+  - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
+  - { key: Z, mods: Command, chars: "\x02z" } # toggle zoom state of the current tmux pane
+  - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
+  - { key: Grave, mods: Control, chars: "\x02p" } # switch to previous tmux window
+  - { key: Comma, mods: Command, chars: "\x02," } # rename the current tmux window
+  - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back in vim (ctrl+o)
+  - { key: LBracket, mods: Command|Shift, chars: "\x02p" } # switch to next tmux window
+  - { key: RBracket, mods: Command, chars: "\x09" } # navigate forward in vim (ctrl+i)
+  - { key: RBracket, mods: Command|Shift, chars: "\x02n" } # switch to previous tmux window
+  - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
+  - { key: Key1, mods: Command, chars: "\x021" } # select tmux window 1
+  - { key: Key2, mods: Command, chars: "\x022" } #                ... 2
+  - { key: Key3, mods: Command, chars: "\x023" } #                ... 3
+  - { key: Key4, mods: Command, chars: "\x024" } #                ... 4
+  - { key: Key5, mods: Command, chars: "\x025" } #                ... 5
+  - { key: Key6, mods: Command, chars: "\x026" } #                ... 6
+  - { key: Key7, mods: Command, chars: "\x027" } #                ... 7
+  - { key: Key8, mods: Command, chars: "\x028" } #                ... 8
+  - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
+  # 025c0a
+  - { key: O, mods: Command, chars: "\x02\x6f" } # switch pane
 
 env:
-  TERM: xterm-256color
+  # TERM: xterm-256color
+  TERM: alacritty
 shell:
-  program: /bin/zsh
+  # program: /bin/zsh
+  program: /usr/local/bin/fish
   args:
     - -l
-    - -c
-    - tmux
+    # - -c
+    # - tmux
